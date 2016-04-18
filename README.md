@@ -1,3 +1,5 @@
+[![npm version](https://img.shields.io/npm/v/react-native-dialogs.svg?style=flat-square)](https://www.npmjs.com/package/react-native-dialogs)
+[![npm downloads](https://img.shields.io/npm/dm/react-native-dialogs.svg?style=flat-square)](https://www.npmjs.com/package/react-native-dialogs)
 # react-native-dialogs
 Material Design dialogs for React Native Android apps (wrapper over [afollestad/material-dialogs](https://github.com/afollestad/material-dialogs))
 
@@ -34,20 +36,22 @@ dependencies {
 ```
 The changes should look like [this](https://github.com/aakashns/react-native-dialogs-example/commit/b58086d8fb9ece99f0e678dd8bf0e689a856bd43).
 
-Next, you need to change the `MainActivity` of your app to extends `FragmentActivity` instead of `Activity` (otherwise dialogs will not be rendered), and register `ReactNativeDialogsPackage` : 
+Next, you need to change the `MainActivity` of your app to register `ReactNativeDialogsPackage` :
 ```java
-import android.support.v4.app.FragmentActivity;
 import com.aakashns.reactnativedialogs.ReactNativeDialogsPackage;
 
-public class MainActivity extends FragmentActivity implements DefaultHardwareBackBtnHandler {
     //...
-  
-          mReactInstanceManager = ReactInstanceManager.builder()
-                //...
-                .addPackage(new MainReactPackage())
-                .addPackage(new ReactNativeDialogsPackage(this)) // <- ADD THIS LINE!
-                //...
-                .build();
+public class MainActivity extends ReactActivity {
+          //...
+
+          @Override
+          protected List<ReactPackage> getPackages() {
+            return Arrays.<ReactPackage>asList(
+                new MainReactPackage(),
+                new ReactNativeDialogsPackage() // add this manager
+            );
+          }
+}
 
 ```
 See [this changelog](https://github.com/aakashns/react-native-dialogs-example/commit/52cac27756963bcd2f4fdcd039e1a78028bb0abd) for reference.
@@ -119,9 +123,9 @@ Examples
 
 Simple example project : https://github.com/aakashns/react-native-dialogs-example
 
-Complex example project : [examples/ExampleApp](./examples/ExampleApp)
+Complex example project : [examples/ExampleApp](https://github.com/aakashns/react-native-dialogs/tree/54d1253213b1a6a453a3ffb1d2dcc65b8dc287fd/examples/ExampleApp)
 
-Try out the following values for option (taken from [examples/ExampleApp/dialogData.js](./examples/ExampleApp/dialogData.js)):
+Try out the following values for option (taken from [examples/ExampleApp/dialogData.js](https://github.com/aakashns/react-native-dialogs/tree/54d1253213b1a6a453a3ffb1d2dcc65b8dc287fd/examples/ExampleApp/dialogData.js)):
 
 ```javascript
 {
@@ -194,4 +198,3 @@ TODO
 Upcoming Features
 -------
 TODO
-

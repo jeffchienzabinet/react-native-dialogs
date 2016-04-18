@@ -1,6 +1,6 @@
 {
   "name": "react-native-dialogs",
-  "version": "0.0.9",
+  "version": "0.0.15",
   "description": "React Native wrappers for https://github.com/afollestad/material-dialogs ",
   "main": "index.js",
   "scripts": {
@@ -20,8 +20,5 @@
   "bugs": {
     "url": "https://github.com/aakashns/react-native-dialogs/issues"
   },
-  "homepage": "https://github.com/aakashns/react-native-dialogs#readme",
-  "peerDependencies": {
-    "react-native": ">=0.13.0"
-  }
+  "homepage": "https://github.com/aakashns/react-native-dialogs#readme"
 }

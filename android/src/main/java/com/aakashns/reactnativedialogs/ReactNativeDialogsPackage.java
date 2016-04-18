@@ -1,6 +1,6 @@
 package com.aakashns.reactnativedialogs;
 
-import android.support.v4.app.FragmentActivity;
+import android.app.Activity;
 
 import com.aakashns.reactnativedialogs.modules.DialogAndroid;
 import com.facebook.react.ReactPackage;
@@ -10,30 +10,28 @@ import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.uimanager.ViewManager;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 public class ReactNativeDialogsPackage implements ReactPackage {
-    FragmentActivity mActivity;
 
-    public ReactNativeDialogsPackage(FragmentActivity fragmentActivity) {
-        mActivity = fragmentActivity;
+    public ReactNativeDialogsPackage() {
+
     }
 
     @Override
-    public List<NativeModule> createNativeModules(
-            ReactApplicationContext reactContext) {
-        List<NativeModule> modules = new ArrayList<>();
-        modules.add(new DialogAndroid(reactContext, mActivity));
-        return modules;
+    public List<NativeModule> createNativeModules(ReactApplicationContext reactContext) {
+        return Arrays.<NativeModule>asList(new DialogAndroid(reactContext));
     }
 
     @Override
     public List<Class<? extends JavaScriptModule>> createJSModules() {
-        return new ArrayList<>();
+        return Collections.emptyList();
     }
 
     @Override
     public List<ViewManager> createViewManagers(ReactApplicationContext reactContext) {
-        return new ArrayList<>();
+        return Collections.emptyList();
     }
 }
